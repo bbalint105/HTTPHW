@@ -1,0 +1,23 @@
+name: Auto build new version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: DockerHub login
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "valniae" --password-stdin
+
+      - name: Build Docker image
+        run: docker build -t valniae/http_server:latest .
+
+      - name: Push Docker image
+        run: docker push valniae/http_server:latest
