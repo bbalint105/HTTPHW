@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: http-server
+spec:
+  containers:
+  - name: http-server
+    image: valniae/http_server:latest
+    ports:
+    - containerPort: 80

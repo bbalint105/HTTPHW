@@ -1,5 +1,6 @@
 FROM golang:1.21
 WORKDIR /app
 COPY http_server.go .
+RUN go build -o http_server http_server.go
 EXPOSE 80
-CMD ["go run http_server.go"]
+CMD ["./http_server"]
