@@ -13,6 +13,6 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/", getRoot)
 
-	fmt.Printf("Listening on port 80")
+	fmt.Printf("Listening on port 80...")
 	http.ListenAndServe(":80", nil)
 }
